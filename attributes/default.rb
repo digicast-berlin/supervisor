@@ -17,6 +17,7 @@
 # limitations under the License.
 #
 
+default['supervisor']['sockfile'] = '/var/run/supervisor.sock'
 default['supervisor']['inet_port'] = nil
 default['supervisor']['inet_username'] = nil
 default['supervisor']['inet_password'] = nil
