@@ -80,6 +80,12 @@ when "debian", "ubuntu"
     mode "644"
   end
 
+  execute "remove sockfile if exists" do
+    command "unlink #{node.supervisor.sockfile}"
+    user "root"
+    not_if { File.exists? "#{node.supervisor.sockfile}" }
+  end
+
   service "supervisor" do
     action [:enable, :start]
   end
